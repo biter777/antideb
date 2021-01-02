@@ -5,8 +5,6 @@ Package antideb - basic anti-debugging and anti-reverse engineering protection f
 [![GoDoc](https://godoc.org/github.com/biter777/antideb?status.svg)](https://godoc.org/github.com/antideb/countries)
 [![GoDev](https://img.shields.io/badge/godev-reference-5b77b3)](https://pkg.go.dev/github.com/biter777/antideb?tab=doc)
 [![Go Walker](https://img.shields.io/badge/gowalker-reference-5b77b3)](https://gowalker.org/github.com/biter777/antideb)
-[![Documentation Status](https://readthedocs.org/projects/antideb/badge/?version=latest)](https://countries.readthedocs.io/en/latest/?badge=latest)
-[![codeclimate](https://codeclimate.com/github/biter777/antideb/badges/gpa.svg)](https://codeclimate.com/github/biter777/antideb)
 [![GolangCI](https://golangci.com/badges/github.com/biter777/antideb.svg?style=flat)](https://golangci.com/r/github.com/biter777/antideb)
 [![GoReport](https://goreportcard.com/badge/github.com/biter777/antideb)](https://goreportcard.com/report/github.com/biter777/antideb)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/08eb1d2ff62e465091b3a288ae078a96)](https://www.codacy.com/manual/biter777/antideb?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=biter777/antideb&amp;utm_campaign=Badge_Grade)
