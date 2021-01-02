@@ -12,7 +12,6 @@ Package antideb - basic anti-debugging and anti-reverse engineering protection f
 [![Coverage Status](https://coveralls.io/repos/github/biter777/antideb/badge.svg?branch=master)](https://coveralls.io/github/biter777/antideb?branch=master)
 [![Coverage](https://img.shields.io/badge/coverage-gocover.io-brightgreen)](https://gocover.io/github.com/biter777/antideb)
 [![License](https://img.shields.io/badge/License-BSD%202--Clause-brightgreen.svg)](https://opensource.org/licenses/BSD-2-Clause)
-[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fbiter777%antideb.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fbiter777%antideb?ref=badge_shield)
 [![Build Status](https://travis-ci.org/biter777/antideb.svg?branch=master)](https://travis-ci.org/biter777/antideb)
 [![Build status](https://ci.appveyor.com/api/projects/status/t9lpor9o8tpacpmr/branch/master?svg=true)](https://ci.appveyor.com/project/biter777/antideb/branch/master)
 [![Circle CI](https://circleci.com/gh/biter777/antideb/tree/master.svg?style=shield)](https://circleci.com/gh/biter777/antideb/tree/master)
