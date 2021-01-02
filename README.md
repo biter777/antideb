@@ -1,12 +1,15 @@
 ## antideb
 
-             _   _     _      _     <br/>
-            | | (_)   | |    | |    <br/>
-  __ _ _ __ | |_ _  __| | ___| |__  <br/>
- / _` | '_ \| __| |/ _` |/ _ \ '_ \ <br/>
-| (_| | | | | |_| | (_| |  __/ |_) | <br/>
- \__,_|_| |_|\__|_|\__,_|\___|_.__/ <br/>
-                                    <br/>
+```go
+             _         _      _     
+            | |       | |    | |    
+  __ _ _ __ | |_ _  __| | ___| |__  
+ / _` | '_ \| __| |/ _` |/ _ \ '_ \ 
+| (_| | | | | |_| | (_| |  __/ |_) |
+ \__,_|_| |_|\__|_|\__,_|\___|_.__/ 
+                                    
+```
+
 Package antideb - basic anti-debugging and anti-reverse engineering protection for your application. Performs basic detection functions such as ptrace, int3, time slots, vdso and others (don't foget to obfuscate your code).
 <br/><br/>
 [![GoDoc](https://godoc.org/github.com/biter777/antideb?status.svg)](https://godoc.org/github.com/antideb/countries)
