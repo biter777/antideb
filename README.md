@@ -23,9 +23,7 @@ Package antideb - basic anti-debugging and anti-reverse engineering protection f
 [![License](https://img.shields.io/badge/License-BSD%202--Clause-brightgreen.svg)](https://opensource.org/licenses/BSD-2-Clause)
 [![Build Status](https://travis-ci.org/biter777/antideb.svg?branch=master)](https://travis-ci.org/biter777/antideb)
 [![Build status](https://ci.appveyor.com/api/projects/status/t9lpor9o8tpacpmr/branch/master?svg=true)](https://ci.appveyor.com/project/biter777/antideb/branch/master)
-[![Semaphore Status](https://biter777.semaphoreci.com/badges/antideb.svg?style=shields)](https://biter777.semaphoreci.com/projects/antideb)
 [![Build Status](https://github.com/go-vgo/robotgo/workflows/Go/badge.svg)](https://github.com/go-vgo/robotgo/commits/master)
-[![Codeship Status](https://codeship.com/projects/00db4400-1803-0138-1132-7ab932dd1523/status?branch=master)](https://app.codeship.com/projects/381056) 
 [![Gluten Free](https://img.shields.io/badge/gluten-free-brightgreen)](https://www.scsglobalservices.com/services/gluten-free-certification)
 [![DepShield Badge](https://depshield.sonatype.org/badges/biter777/antideb/depshield.svg)](https://depshield.github.io)
 <br/>
