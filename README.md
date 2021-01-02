@@ -7,7 +7,6 @@
  / _` | '_ \| __| |/ _` |/ _ \ '_ \ 
 | (_| | | | | |_| | (_| |  __/ |_) |
  \__,_|_| |_|\__|_|\__,_|\___|_.__/ 
-                                    
 ```
 
 Package antideb - basic anti-debugging and anti-reverse engineering protection for your application. Performs basic detection functions such as ptrace, int3, time slots, vdso and others (don't foget to obfuscate your code).
@@ -24,7 +23,6 @@ Package antideb - basic anti-debugging and anti-reverse engineering protection f
 [![License](https://img.shields.io/badge/License-BSD%202--Clause-brightgreen.svg)](https://opensource.org/licenses/BSD-2-Clause)
 [![Build Status](https://travis-ci.org/biter777/antideb.svg?branch=master)](https://travis-ci.org/biter777/antideb)
 [![Build status](https://ci.appveyor.com/api/projects/status/t9lpor9o8tpacpmr/branch/master?svg=true)](https://ci.appveyor.com/project/biter777/antideb/branch/master)
-[![Circle CI](https://circleci.com/gh/biter777/antideb/tree/master.svg?style=shield)](https://circleci.com/gh/biter777/antideb/tree/master)
 [![Semaphore Status](https://biter777.semaphoreci.com/badges/antideb.svg?style=shields)](https://biter777.semaphoreci.com/projects/antideb)
 [![Build Status](https://github.com/go-vgo/robotgo/workflows/Go/badge.svg)](https://github.com/go-vgo/robotgo/commits/master)
 [![Codeship Status](https://codeship.com/projects/00db4400-1803-0138-1132-7ab932dd1523/status?branch=master)](https://app.codeship.com/projects/381056) 
