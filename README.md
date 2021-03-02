@@ -1,19 +1,12 @@
 ## antideb
 
-```go
-             _         _      _     
-            | |       | |    | |    
-  __ _ _ __ | |_ _  __| | ___| |__  
- / _` | '_ \| __| |/ _` |/ _ \ '_ \ 
-| (_| | | | | |_| | (_| |  __/ |_) |
- \__,_|_| |_|\__|_|\__,_|\___|_.__/ 
-```
-
 Package antideb - basic anti-debugging and anti-reverse engineering protection for your application. Performs basic detection functions such as ptrace, int3, time slots, vdso and others (don't foget to obfuscate your code).
 <br/><br/>
 [![GoDoc](https://godoc.org/github.com/biter777/antideb?status.svg)](https://godoc.org/github.com/antideb/countries)
 [![GoDev](https://img.shields.io/badge/godev-reference-5b77b3)](https://pkg.go.dev/github.com/biter777/antideb?tab=doc)
 [![Go Walker](https://img.shields.io/badge/gowalker-reference-5b77b3)](https://gowalker.org/github.com/biter777/antideb)
+[![Documentation Status](https://readthedocs.org/projects/antideb/badge/?version=latest)](https://countries.readthedocs.io/en/latest/?badge=latest)
+[![codeclimate](https://codeclimate.com/github/biter777/antideb/badges/gpa.svg)](https://codeclimate.com/github/biter777/antideb)
 [![GolangCI](https://golangci.com/badges/github.com/biter777/antideb.svg?style=flat)](https://golangci.com/r/github.com/biter777/antideb)
 [![GoReport](https://goreportcard.com/badge/github.com/biter777/antideb)](https://goreportcard.com/report/github.com/biter777/antideb)
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/08eb1d2ff62e465091b3a288ae078a96)](https://www.codacy.com/manual/biter777/antideb?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=biter777/antideb&amp;utm_campaign=Badge_Grade)
@@ -21,9 +14,13 @@ Package antideb - basic anti-debugging and anti-reverse engineering protection f
 [![Coverage Status](https://coveralls.io/repos/github/biter777/antideb/badge.svg?branch=master)](https://coveralls.io/github/biter777/antideb?branch=master)
 [![Coverage](https://img.shields.io/badge/coverage-gocover.io-brightgreen)](https://gocover.io/github.com/biter777/antideb)
 [![License](https://img.shields.io/badge/License-BSD%202--Clause-brightgreen.svg)](https://opensource.org/licenses/BSD-2-Clause)
+[![FOSSA Status](https://app.fossa.com/api/projects/git%2Bgithub.com%2Fbiter777%antideb.svg?type=shield)](https://app.fossa.com/projects/git%2Bgithub.com%2Fbiter777%antideb?ref=badge_shield)
 [![Build Status](https://travis-ci.org/biter777/antideb.svg?branch=master)](https://travis-ci.org/biter777/antideb)
 [![Build status](https://ci.appveyor.com/api/projects/status/t9lpor9o8tpacpmr/branch/master?svg=true)](https://ci.appveyor.com/project/biter777/antideb/branch/master)
+[![Circle CI](https://circleci.com/gh/biter777/antideb/tree/master.svg?style=shield)](https://circleci.com/gh/biter777/antideb/tree/master)
+[![Semaphore Status](https://biter777.semaphoreci.com/badges/antideb.svg?style=shields)](https://biter777.semaphoreci.com/projects/antideb)
 [![Build Status](https://github.com/go-vgo/robotgo/workflows/Go/badge.svg)](https://github.com/go-vgo/robotgo/commits/master)
+[![Codeship Status](https://codeship.com/projects/00db4400-1803-0138-1132-7ab932dd1523/status?branch=master)](https://app.codeship.com/projects/381056) 
 [![Gluten Free](https://img.shields.io/badge/gluten-free-brightgreen)](https://www.scsglobalservices.com/services/gluten-free-certification)
 [![DepShield Badge](https://depshield.sonatype.org/badges/biter777/antideb/depshield.svg)](https://depshield.github.io)
 <br/>

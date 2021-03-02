@@ -1,4 +1,5 @@
 // Package antideb - basic anti-debugging and anti-reverse engineering protection for your application. Performs basic detection functions such as ptrace, int3, time slots, vdso and others (don't foget to obfuscate your code).
+package antideb
 /*
 Usage
 
@@ -11,7 +12,6 @@ func main() {
 	// ... do main work
 }
 */
-package antideb
 
 /*
 #include "detect_nearheap.c"
@@ -31,6 +31,8 @@ import (
 	"strings"
 	"time"
 
+	_ "runtime/cgo" // (By default Go uses os threads with small stack sizes of 128KB. If your app crashes, it may be due to a stack overflow. )
+
 	"github.com/biter777/processex"
 )
 
@@ -41,12 +43,13 @@ var panicVDSO, panicNoASLR, panicEnv, panicHeap, panicParent, panicParent2, pani
 var startCh, startInitCh, startTotal, startVDSO, startNoASLR, startEnv, startHeap, startParent, startParent2, startInt3, startPtrace chan struct{}
 var resCh, resVDSO, resNoASLR, resEnv, resHeap, resParent, resParent2, resInt3, resPtrace chan bool
 
-// Detect - detect a debugger / anti-debugger
+// DetectAll - detect a debugger / anti-debugger, all test
 // test example: gdb -nx -q -ex 'r' -ex 'q' ./app_name
-func Detect(panicEnable bool) bool {
+func DetectAll(panicEnable bool) bool {
 	panicVDSO, panicNoASLR, panicEnv, panicHeap, panicParent, panicParent2, panicInt3, panicPtrace = panicEnable, panicEnable, panicEnable, panicEnable, panicEnable, panicEnable, panicEnable, panicEnable
 	resTmp := func() bool {
 		makeCh()
+		resPtrace = make(chan bool, 1)
 		defer close(startTotal)
 		go startDetect()
 		goDetectVDSO()
@@ -56,7 +59,7 @@ func Detect(panicEnable bool) bool {
 		goDetectParent()
 		goDetectParent2()
 		goDetectInt3()
-		goDetectPtrace()
+		goDetectPtrace(true)
 		goDetectTotal()
 		goto L1
 	L8:
@@ -70,7 +73,7 @@ func Detect(panicEnable bool) bool {
 		goto L7
 		close(startInitCh)
 	L7:
-		if resCatch() {
+		if resCatch(8) {
 			res = true
 			if panicEnable {
 				res = true
@@ -129,9 +132,96 @@ func Detect(panicEnable bool) bool {
 	return res || resTmp || d > time.Microsecond*100 || startCh != nil
 }
 
-func resCatch() bool {
+// DetectLite - detect a debugger / anti-debugger
+// test example: gdb -nx -q -ex 'r' -ex 'q' ./app_name
+func DetectLite(panicEnable bool) bool {
+	panicVDSO, panicNoASLR, panicEnv, panicHeap, panicParent, panicParent2, panicInt3 = panicEnable, panicEnable, panicEnable, panicEnable, panicEnable, panicEnable, panicEnable
+	resTmp := func() bool {
+		makeCh()
+		defer close(startTotal)
+		go startDetect()
+		goDetectVDSO()
+		// goDetectNoASLR()
+		goDetectDebugEnv()
+		goDetectNearHeap()
+		// goDetectParent()
+		goDetectParent2()
+		goDetectInt3()
+		goDetectTotal()
+		goto L1
+	L8:
+		if !res {
+			close(startInitCh)
+			return true
+		}
+		res = false
+		total--
+		close(startInitCh)
+		goto L7
+		close(startInitCh)
+	L7:
+		if resCatch(5) {
+			res = true
+			if panicEnable {
+				res = true
+				panic("Segmentation fault")
+			}
+			res = true
+			return true
+		}
+
+		if res {
+			if panicEnable {
+				res = true
+				panic("Segmentation fault")
+			}
+			res = true
+			return true
+		}
+
+		startedAt = time.Now()
+		res = <-resCh
+		if res {
+			if panicEnable {
+				res = true
+				panic("Segmentation fault")
+			}
+			res = true
+			return true
+		}
+
+		if time.Now().Sub(startedAt) > time.Microsecond*100 {
+			if panicEnable {
+				res = true
+				panic("Segmentation fault")
+			}
+			res = true
+			return true
+		}
+
+		goto L2
+	L1:
+		res = true
+		total++
+		goto L8
+	L2:
+		res = res
+		return res
+	}()
+
+	startedAt = time.Now()
+	time.Sleep(1)
+	d := time.Now().Sub(startedAt)
+	if resCh != nil {
+		close(resCh)
+		return true
+	}
+	return res || resTmp || d > time.Microsecond*100 || startCh != nil
+}
+
+func resCatch(max int) bool {
 	var res, i int
-	for i = 0; i < 8; i++ {
+	for i = 0; i < max; i++ {
 		select {
 		case r1 := <-resVDSO:
 			if r1 {
@@ -201,7 +291,7 @@ func resCatch() bool {
 	}
 
 	go func() {
-		resCh <- res > 0 || i < 7
+		resCh <- res > 0 || i < max-1
 		close(resCh)
 		resCh = nil
 	}()
@@ -235,7 +325,6 @@ func makeCh() {
 	resParent = make(chan bool, 1)
 	resParent2 = make(chan bool, 1)
 	resInt3 = make(chan bool, 1)
-	resPtrace = make(chan bool, 1)
 	<-startTmp1
 	<-startTmp2
 	startTotal = make(chan struct{}, 0)

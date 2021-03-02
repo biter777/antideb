@@ -103,17 +103,25 @@ func goDetectInt3() {
 	}()
 }
 
-func goDetectPtrace() {
+func goDetectPtrace(runLast bool) {
 	go func() {
 		select {
 		case <-startCh:
 		case <-startPtrace:
 		case <-time.After(time.Second * 5):
 		}
+		if runLast {
+			<-startVDSO
+			<-startNoASLR
+			<-startHeap
+			<-startParent
+			<-startInt3
+		}
 		r := DetectPtrace()
 		total += *(*uint64)(unsafe.Pointer(&r)) & 1
 		resPtrace <- r
 		close(resPtrace)
+		resPtrace = nil
 	}()
 }
 
